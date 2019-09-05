@@ -1,0 +1,17 @@
+server:
+  port: 9010
+spring:
+  application:
+    name: epm-configs
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs/db,classpath:/configs/epm-gateway,classpath:/configs/schedule,classpath:/configs/common
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7000/eureka/
+

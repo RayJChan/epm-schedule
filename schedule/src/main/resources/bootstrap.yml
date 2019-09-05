@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /schedule
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    name: schedule
+  cloud:
+    config:
+      name: ${spring.application.name},db,common
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: epm-configs
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7000/eureka/
+
+
+
+
+

@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: schedule1
+          uri: lb://schedule
+          predicates:
+            - Path=/schedule/**
+
+

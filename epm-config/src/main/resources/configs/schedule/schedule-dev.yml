@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    druid:
+      stat-view-servlet:
+        loginUsername: admin
+        loginPassword: 123456
+    dynamic:
+      druid: # 2.2.3开始提供全局druid参数，以下是默认值和druid原生保持一致
+        initial-size: 0
+        max-active: 8
+        min-idle: 2
+        max-wait: -1
+        min-evictable-idle-time-millis: 30000
+        max-evictable-idle-time-millis: 30000
+        time-between-eviction-runs-millis: 0
+        validation-query: select 1
+        validation-query-timeout: -1
+        test-on-borrow: false
+        test-on-return: false
+        test-while-idle: true
+        pool-prepared-statements: true
+        max-open-prepared-statements: 100
+        filters: stat,wall
+        share-prepared-statements: true
+      datasource:
+        master:
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://10.18.40.115:3306/schedule_test?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=CST
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: uuid #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      db-column-underline: true
+  configuration:
+    map-underscore-to-camel-case: true  #entity类字段名映射表字段名
+    cache-enabled: false
